@@ -340,9 +340,7 @@ function GenerateUI(listeners_type)
     let sideloadingSelector = form.create_selector_file();
     sideloadingSelector.setVisible(false);
 
-    let checkIatHiding = form.create_check("IAT Hiding (disabled in standard build)");
-    checkIatHiding.setChecked(false);
-    checkIatHiding.setEnabled(false);
+    let checkIatHiding = form.create_check("IAT Hiding (empty import table)");
     // if( !listeners_type.includes("BeaconHTTP") && !listeners_type.includes("BeaconDNS") ) {
     //     checkIatHiding.setVisible(false);
     // }

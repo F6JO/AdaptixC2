@@ -65,5 +65,5 @@ for protocol in http smb tcp dns; do
 done
 cp -R "$ADAPTIX_ROOT/AdaptixServer/extenders/gopher_agent/src_gopher" "$OUTPUT/extenders/gopher_agent/"
 git -C "$ADAPTIX_ROOT" rev-parse HEAD > "$OUTPUT/REVISION"
-echo 'standard (IAT Hiding disabled)' > "$OUTPUT/BUILD_VARIANT"
+echo 'native' > "$OUTPUT/BUILD_VARIANT"
 echo "Release built at $OUTPUT; configuration, certificates, and data were not copied."

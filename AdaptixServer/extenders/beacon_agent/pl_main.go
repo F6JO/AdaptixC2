@@ -566,13 +566,6 @@ func (p *PluginAgent) BuildPayload(profile adaptix.BuildProfile, agentProfiles [
 		return nil, "", err
 	}
 
-	// Saved profiles and older clients can still request this option.
-	// Standard builds always use the normal C/C++ runtime libraries.
-	if generateConfig.IatHiding {
-		_ = Ts.TsAgentBuildLog(profile.BuilderId, adaptix.BUILD_LOG_INFO, "IAT Hiding is disabled in this standard build; using normal runtime linking")
-		generateConfig.IatHiding = false
-	}
-
 	// IAT Hiding: -nostdlib eliminates CRT, custom crt.cpp provides replacements
 	if generateConfig.IatHiding {
 		cFlags += " -DIAT_HIDING"
