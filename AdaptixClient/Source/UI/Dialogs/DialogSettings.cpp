@@ -519,7 +519,7 @@ void DialogSettings::showEvent(QShowEvent* event)
 
 QString DialogSettings::userAppThemeDir()
 {
-    QString dir = QDir(QDir::homePath()).filePath(".adaptix/themes/app");
+    QString dir = QDir(GetAppDataPath()).filePath("themes/app");
     QDir().mkpath(dir);
     return dir;
 }

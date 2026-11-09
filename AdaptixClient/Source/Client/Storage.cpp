@@ -7,9 +7,8 @@ static const QString DB_CONNECTION_NAME = "adaptix_connection";
 
 Storage::Storage()
 {
-    QString homeDirPath = QDir::homePath();
     bool appDirExists = false;
-    appDirPath = QDir(homeDirPath).filePath(".adaptix");
+    appDirPath = GetAppDataPath();
 
     QDir appDir(appDirPath);
     if ( appDir.exists() ) {

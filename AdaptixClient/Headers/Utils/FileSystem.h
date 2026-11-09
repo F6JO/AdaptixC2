@@ -12,6 +12,10 @@
 #define TYPE_DISK    2
 #define TYPE_ROOTDIR 3
 
+QString GetAppDataPath();
+
+QString GetProjectsPath();
+
 QString ReadFileString(const QString &filePath, bool* result);
 
 QString GetBasenameWindows(const QString& path);

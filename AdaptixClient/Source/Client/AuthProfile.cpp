@@ -25,9 +25,7 @@ QString AuthProfile::GetProjectDir() const
 {
     QString dirPath = this->projectDir.trimmed();
     if (dirPath.isEmpty()) {
-        QDir home(QDir::homePath());
-        QString basePath = home.filePath("AdaptixProjects");
-        QDir baseDir(basePath);
+        QDir baseDir(GetProjectsPath());
         dirPath = baseDir.filePath(this->project.trimmed());
     }
 

@@ -141,7 +141,7 @@ ConsoleThemeManager& ConsoleThemeManager::instance()
 
 QString ConsoleThemeManager::userThemeDir()
 {
-    QString dir = QDir(QDir::homePath()).filePath(".adaptix/themes/console");
+    QString dir = QDir(GetAppDataPath()).filePath("themes/console");
     QDir().mkpath(dir);
     return dir;
 }

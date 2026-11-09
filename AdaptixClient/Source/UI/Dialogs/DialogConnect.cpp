@@ -13,7 +13,7 @@
 
 static QString defaultProjectDir(const QString &projectName)
 {
-    return QDir::home().filePath("AdaptixProjects/" + projectName.trimmed());
+    return QDir(GetProjectsPath()).filePath(projectName.trimmed());
 }
 
 bool DialogConnect::parseUrl(QString &host, QString &port, QString &endpoint) const
@@ -581,7 +581,7 @@ void DialogConnect::onButton_NewProfile()
 
 void DialogConnect::onButton_Load()
 {
-    QString baseDir = QDir::home().filePath("AdaptixProjects");
+    QString baseDir = GetProjectsPath();
     QDir(baseDir).mkpath(".");
 
     QString projectDir = lineEdit_ProjectDir->text().trimmed();
@@ -676,7 +676,7 @@ void DialogConnect::onButton_Save()
     json["password"] = lineEdit_Password->text();
     json["projectDir"] = projectDir;
 
-    QString baseDir = QDir::homePath();
+    QString baseDir = GetProjectsPath();
     QString projectDirText = lineEdit_ProjectDir->text().trimmed();
     if (!projectDirText.isEmpty())
         baseDir = projectDirText;

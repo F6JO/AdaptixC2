@@ -1,4 +1,17 @@
 #include <Utils/FileSystem.h>
+#include <QDir>
+
+QString GetAppDataPath()
+{
+    const QString path = qEnvironmentVariable("ADAPTIX_DATA_DIR");
+    return path.isEmpty() ? QDir::home().filePath(".adaptix") : QDir(path).absolutePath();
+}
+
+QString GetProjectsPath()
+{
+    const QString path = qEnvironmentVariable("ADAPTIX_PROJECTS_DIR");
+    return path.isEmpty() ? QDir::home().filePath("AdaptixProjects") : QDir(path).absolutePath();
+}
 
 QString ReadFileString(const QString &filePath, bool* result)
 {

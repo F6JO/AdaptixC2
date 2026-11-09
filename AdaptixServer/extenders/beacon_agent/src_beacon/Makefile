@@ -47,7 +47,11 @@ MINIZ_TRIM_FLAGS := -DMINIZ_NO_STDIO -DMINIZ_NO_ARCHIVE_APIS -DMINIZ_NO_ARCHIVE_
 
 .PHONY: all clean pre x64 x86
 
-NPROC := $(shell nproc)
+ifeq ($(shell uname -s),Darwin)
+    NPROC := $(shell sysctl -n hw.ncpu)
+else
+    NPROC := $(shell nproc)
+endif
 ifeq ($(MAKELEVEL), 0)
     MAKEFLAGS += -j$(NPROC) --no-print-directory
 endif

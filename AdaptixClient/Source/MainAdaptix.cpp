@@ -218,7 +218,7 @@ void MainAdaptix::SetApplicationTheme() const
     FontManager::instance().initialize();
 
     auto* style = new oclero::qlementine::QlementineStyle(qApp);
-    QString userPath = QDir(QDir::homePath()).filePath(".adaptix/themes/app/" + settings->data.MainTheme + ".json");
+    QString userPath = QDir(GetAppDataPath()).filePath("themes/app/" + settings->data.MainTheme + ".json");
     QString themePath = QFile::exists(userPath) ? userPath : QString(":/qlementine-themes/%1").arg(settings->data.MainTheme);
     style->setThemeJsonPath(themePath);
     const_cast<MainAdaptix*>(this)->qlementineStyle = style;
